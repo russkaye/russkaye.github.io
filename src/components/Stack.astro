@@ -1,0 +1,22 @@
+---
+const groups = [
+  ['AI & LLM', 'Claude (Anthropic SDK), OpenAI, open-weight models (GLM, Kimi, DeepSeek), OpenRouter, RAG, MCP servers, LLM evaluation, Onyx'],
+  ['Backend', 'Python, TypeScript, FastAPI, Express, Hono, Next.js, Zod, Pydantic, OpenAPI'],
+  ['Data', 'PostgreSQL (row-level security, multi-tenant), Cloud SQL, Firestore, SQLite, Supabase'],
+  ['Cloud (GCP)', 'Cloud Run, Compute Engine, Pub/Sub, Cloud Tasks, Scheduler, Secret Manager, KMS, IAP, Terraform, Docker'],
+  ['CI/CD & security', 'GitHub Actions, Cloud Build, Workload Identity Federation, OAuth 2.1 + PKCE, OIDC, SAML, maker-checker'],
+  ['Testing & automation', 'pytest, Vitest, Playwright, axe-core, Chrome DevTools Protocol, n8n, Pipedream'],
+];
+---
+<section id="stack" class="section" aria-labelledby="stack-h">
+  <div class="wrap">
+    <p class="eyebrow">Stack</p>
+    <h2 id="stack-h">Tools I've shipped with — not just tried.</h2>
+    <dl class="groups">{groups.map(([k, v]) => (<div><dt>{k}</dt><dd class="muted">{v}</dd></div>))}</dl>
+  </div>
+</section>
+<style>
+  .groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px 40px; margin: 28px 0 0; }
+  dt { font-weight: 600; margin-bottom: 4px; }
+  dd { margin: 0; font-size: .95rem; }
+</style>

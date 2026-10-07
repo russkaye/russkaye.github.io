@@ -1,0 +1,30 @@
+---
+import JunoAvatar from './JunoAvatar.astro';
+interface Props { junoLoom?: string }
+const { junoLoom } = Astro.props;
+---
+<section class="wrap hero reveal" aria-labelledby="hero-h">
+  <p class="eyebrow">Applied AI Engineer</p>
+  <h1 id="hero-h">I ship LLM agents to production — <em>and keep the bill down.</em></h1>
+  <p class="sub prose muted">LLM agents, RAG and MCP integrations for regulated teams, built with AI coding agents under real engineering discipline: specs, tests, CI gates and user sign-off.</p>
+  <div class="proof">
+    <div><span class="num big">74%</span><span class="muted cap">less LLM spend across 30 production agents at a bank</span></div>
+    {junoLoom && (<a class="juno" href={junoLoom}><JunoAvatar size={30} /><span>Meet Juno · 90s ▶</span></a>)}
+  </div>
+  <div class="ctas">
+    <a class="btn btn-primary" href="/resume.pdf" download="Russell_Abregande_Resume.pdf">Download résumé</a>
+    <a class="btn btn-link" href="mailto:russabregande@gmail.com">Email me</a>
+  </div>
+</section>
+<style>
+  .hero { padding-block: clamp(32px, 7vw, 88px) clamp(48px, 8vw, 96px); }
+  h1 { max-width: 18ch; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .sub { font-size: 1.12rem; margin-top: 8px; }
+  .proof { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 24px 40px; margin: 36px 0; }
+  .proof > div { display: flex; align-items: flex-end; gap: 14px; }
+  .big { font-size: clamp(3.4rem, 9vw, 5.2rem); }
+  .cap { max-width: 22ch; font-size: .92rem; line-height: 1.35; padding-bottom: 6px; }
+  .juno { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; text-decoration: none; font-size: .9rem; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+</style>

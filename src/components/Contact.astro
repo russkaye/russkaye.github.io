@@ -1,0 +1,25 @@
+<section id="contact" class="section" aria-labelledby="contact-h">
+  <div class="wrap contact">
+    <picture>
+      <source srcset="/russell.webp" type="image/webp" />
+      <img src="/russell.jpg" alt="Russell Abregande" width="240" height="240" loading="lazy" />
+    </picture>
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-h">Need someone who ships AI to production?</h2>
+      <p class="muted">Based in Manila · open to US, AU and EU hours · available for full-time remote roles.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/resume.pdf" download="Russell_Abregande_Resume.pdf">Download résumé</a>
+        <a class="btn btn-link" href="mailto:russabregande@gmail.com">russabregande@gmail.com</a>
+      </div>
+      <p class="links"><a href="https://linkedin.com/in/russell-abregande-798475305">LinkedIn</a> · <a href="https://github.com/russkaye">GitHub</a></p>
+    </div>
+  </div>
+</section>
+<style>
+  .contact { display: grid; grid-template-columns: 240px 1fr; gap: 40px; align-items: center; }
+  @media (max-width: 640px) { .contact { grid-template-columns: 1fr; } .contact img { width: 160px; } }
+  img { border-radius: 24px; border: 1px solid var(--border); aspect-ratio: 1; object-fit: cover; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 20px 0 12px; }
+  .links { font-size: .92rem; }
+</style>

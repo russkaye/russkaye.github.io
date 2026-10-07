@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import MetricRow from '../../components/MetricRow.astro';
+import LoomEmbed from '../../components/LoomEmbed.astro';
+import CostMigration from '../../components/diagrams/CostMigration.astro';
+import CostChart from '../../components/diagrams/CostChart.astro';
+import McpServer from '../../components/diagrams/McpServer.astro';
+import SwimSchoolMirror from '../../components/diagrams/SwimSchoolMirror.astro';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('caseStudies')).sort((a, b) => a.data.order - b.data.order);
+  return all.map((entry, i) => ({ params: { id: entry.id }, props: { entry, next: all[(i + 1) % all.length] } }));
+}
+const { entry, next } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<Base title={`${d.title} — Russell Abregande`} description={d.summary}>
+  <article class="wrap cs">
+    <p class="eyebrow">Case study · {d.context}</p>
+    <h1 class="prose">{d.title}</h1>
+    <p class="lede prose muted">{d.summary}</p>
+    <MetricRow metrics={d.metrics} />
+    {d.loom && <LoomEmbed url={d.loom} title={d.title} />}
+    <div class="diagram card" tabindex="0" role="region" aria-label="Architecture diagram">
+      {d.diagram === 'cost' && <CostMigration />}
+      {d.diagram === 'mcp' && <McpServer />}
+      {d.diagram === 'mirror' && <SwimSchoolMirror />}
+    </div>
+    {d.diagram === 'cost' && <div class="diagram card" tabindex="0" role="region" aria-label="Cost chart"><CostChart /></div>}
+    <div class="prose body"><Content /></div>
+    <ul class="stack" aria-label="Stack">{d.stack.map((s) => <li class="chip">{s}</li>)}</ul>
+    <nav class="next" aria-label="More work">
+      <a href={`/work/${next.id}/`}>Next case study → {next.data.title}</a>
+      <a class="btn btn-primary" href="/#contact">Talk to me</a>
+    </nav>
+  </article>
+</Base>
+<style>
+  .cs { padding-block: 24px 80px; }
+  .lede { font-size: 1.15rem; }
+  .diagram { margin: 8px 0 32px; color: var(--text); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* Keep diagram labels legible on phones: the card scrolls sideways instead of shrinking text to ~5px. */
+  .diagram :global(svg) { min-width: 640px; }
+  .body :global(h2) { font-size: 1.6rem; margin-top: 1.6em; }
+  .body :global(li) { margin-bottom: .4em; }
+  .stack { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0; }
+  .next { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 24px; }
+</style>

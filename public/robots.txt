@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://russkaye.github.io/sitemap-index.xml

@@ -1,0 +1,20 @@
+---
+const steps = [
+  { h: 'Spec first', p: 'Every build starts as a written spec with success criteria and constraints — before any code, human or AI.' },
+  { h: 'Agents with roles', p: 'Claude Code and Codex split the work as planner, builder and reviewer. I direct them and check every result.' },
+  { h: 'Tests gate everything', p: 'Test-driven where it matters and CI-gated always — one service alone runs 1,500+ automated tests before deploy.' },
+  { h: 'Users sign off', p: 'Production means real users accepted it. AI changes go through user acceptance testing, then monitoring.' },
+];
+---
+<section id="how" class="section" aria-labelledby="how-h">
+  <div class="wrap">
+    <p class="eyebrow">How I build</p>
+    <h2 id="how-h" class="prose">AI-assisted, not AI-improvised.</h2>
+    <ol class="steps">{steps.map((s, i) => (<li class="card"><span class="num">0{i + 1}</span><h3>{s.h}</h3><p class="muted">{s.p}</p></li>))}</ol>
+  </div>
+</section>
+<style>
+  .steps { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .steps .num { font-size: 1.4rem; display: block; margin-bottom: 14px; }
+  .steps p { margin: 0; font-size: .95rem; }
+</style>

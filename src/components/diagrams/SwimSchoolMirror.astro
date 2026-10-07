@@ -1,0 +1,21 @@
+---
+import Box from './Box.astro';
+---
+<svg viewBox="0 0 760 240" role="img" aria-labelledby="sw-t sw-d" font-family="var(--sans)">
+  <title id="sw-t">Data mirror pipeline</title>
+  <desc id="sw-d">Browser workers read Enrollments, Families and Students from the third-party booking system, write redacted, hash-verified evidence, and repeatable import and verification scripts load it into a multi-tenant Postgres database with row-level security that powers the operations app for 7 locations.</desc>
+  <defs><marker id="sw-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor" /></marker></defs>
+  <Box x={10} y={80} w={130} h={64} label="Booking system" sub="third-party" />
+  <Box x={170} y={80} w={140} h={64} label="Browser workers" sub="Playwright + CDP" accent />
+  <Box x={340} y={80} w={130} h={64} label="Evidence" sub="redacted · hashed" />
+  <Box x={500} y={80} w={120} h={64} label="Postgres" sub="row-level security" />
+  <Box x={650} y={80} w={100} h={64} label="Ops app" sub="7 locations" accent />
+  <path d="M140 112 H160" stroke="currentColor" fill="none" marker-end="url(#sw-a)" />
+  <path d="M310 112 H330" stroke="currentColor" fill="none" marker-end="url(#sw-a)" />
+  <path d="M470 112 H490" stroke="currentColor" fill="none" marker-end="url(#sw-a)" />
+  <path d="M620 112 H640" stroke="currentColor" fill="none" marker-end="url(#sw-a)" />
+  <text x="240" y="40" text-anchor="middle" font-size="12" fill="var(--muted)">Enrollments · Families · Students</text>
+  <path d="M240 46 V72" stroke="var(--muted)" stroke-dasharray="3 3" fill="none" />
+  <rect x="330" y="176" width="300" height="40" rx="8" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" />
+  <text x="480" y="201" text-anchor="middle" font-size="12" fill="currentColor">Guardrails: no raw PII · no unsupervised prod writes</text>
+</svg>

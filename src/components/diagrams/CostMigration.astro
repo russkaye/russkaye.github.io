@@ -1,0 +1,19 @@
+---
+import Box from './Box.astro';
+---
+<svg viewBox="0 0 760 300" role="img" aria-labelledby="cm-t cm-d" font-family="var(--sans)">
+  <title id="cm-t">Model migration flow</title>
+  <desc id="cm-d">Each agent keeps its prompts and tools; its model is swapped from a frontier model to an open-weight model, runs two weeks of user acceptance testing, and is released to production only if quality holds, with monitoring afterwards.</desc>
+  <defs><marker id="cm-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor" /></marker></defs>
+  <Box x={20} y={40} w={150} h={64} label="AI agent" sub="prompts · docs · tools" />
+  <Box x={240} y={10} w={180} h={56} label="Frontier model" sub="before" />
+  <Box x={240} y={86} w={180} h={56} label="Open-weight model" sub="GLM · Kimi · DeepSeek" accent />
+  <Box x={490} y={86} w={120} h={56} label="2-week UAT" sub="real users" />
+  <Box x={640} y={86} w={100} h={56} label="Production" accent />
+  <Box x={490} y={200} w={250} h={56} label="Monitoring" sub="quality + cost" />
+  <path d="M170 64 H230" stroke="currentColor" stroke-dasharray="4 4" fill="none" marker-end="url(#cm-a)" />
+  <path d="M170 82 Q205 114 230 114" stroke="var(--accent)" stroke-width="2" fill="none" marker-end="url(#cm-a)" />
+  <path d="M420 114 H480" stroke="currentColor" fill="none" marker-end="url(#cm-a)" />
+  <path d="M610 114 H630" stroke="currentColor" fill="none" marker-end="url(#cm-a)" />
+  <path d="M690 142 V190" stroke="currentColor" fill="none" marker-end="url(#cm-a)" />
+</svg>

@@ -1,0 +1,15 @@
+---
+interface Props { size?: number }
+const { size = 32 } = Astro.props;
+---
+<svg viewBox="0 0 64 64" width={size} height={size} role="img" aria-label="Juno, Russell's AI agent">
+  <line x1="32" y1="6" x2="32" y2="14" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" />
+  <circle cx="32" cy="5" r="3.5" fill="var(--accent)" />
+  <rect x="10" y="14" width="44" height="38" rx="16" fill="var(--accent)" />
+  <rect x="17" y="23" width="30" height="18" rx="9" fill="var(--surface)" />
+  <circle cx="26" cy="32" r="3.2" fill="var(--text)" />
+  <circle cx="38" cy="32" r="3.2" fill="var(--text)" />
+  <path d="M27 46 Q32 50 37 46" stroke="var(--surface)" stroke-width="2.5" fill="none" stroke-linecap="round" />
+  <rect x="4" y="27" width="6" height="12" rx="3" fill="var(--accent)" />
+  <rect x="54" y="27" width="6" height="12" rx="3" fill="var(--accent)" />
+</svg>

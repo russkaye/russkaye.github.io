@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import CaseCard from '../components/CaseCard.astro';
+import HowIBuild from '../components/HowIBuild.astro';
+import Stack from '../components/Stack.astro';
+import Timeline from '../components/Timeline.astro';
+import Contact from '../components/Contact.astro';
+
+const JUNO_INTRO_LOOM: string | undefined = undefined; // set to the intro Loom share URL once recorded
+const cases = (await getCollection('caseStudies')).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Russell Abregande — Applied AI Engineer" description="Applied AI Engineer shipping LLM agents, RAG and MCP integrations to production — cost-aware by design.">
+  <Hero junoLoom={JUNO_INTRO_LOOM} />
+  <section id="work" class="section" aria-labelledby="work-h">
+    <div class="wrap">
+      <p class="eyebrow">Selected work</p>
+      <h2 id="work-h">Production systems, real numbers.</h2>
+      <div class="grid">
+        {cases.map((c) => <CaseCard id={c.id} title={c.data.title} summary={c.data.summary} metric={c.data.metrics[0]} stack={c.data.stack} />)}
+      </div>
+    </div>
+  </section>
+  <HowIBuild />
+  <Stack />
+  <Timeline />
+  <Contact />
+</Base>
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 32px; }
+</style>

@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import JunoAvatar from '../components/JunoAvatar.astro';
+---
+<Base title="Not found — Russell Abregande" description="This page doesn't exist." path="/404">
+  <section class="wrap nf">
+    <JunoAvatar size={72} />
+    <h1>Juno couldn't find that page.</h1>
+    <p class="muted">It may have moved. The good stuff is on the home page.</p>
+    <a class="btn btn-primary" href="/">Go home</a>
+  </section>
+</Base>
+<style>.nf { padding-block: 80px; display: grid; gap: 16px; justify-items: start; }</style>
